@@ -2,15 +2,14 @@
 
 <span class="listing">
 <ul>
-<% @recipes.each do |recipe| %>
+<% Recipe.order_by_rating.each do |recipe| %>
 
-  <li><a href="/recipes/<%=recipe.id%>"><%= recipe.name %></a></li>
+  <li><a href="/recipes/<%=recipe.id%>"><%= recipe.name %> <%= "★"*recipe.average_rating.to_i%></a></li>
 
 <% end %>
 </ul>
 </span>
 
-<br/>
 <br/>
 
 <h3>Add a New Recipe</h3>

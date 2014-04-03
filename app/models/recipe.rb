@@ -6,8 +6,21 @@ class Recipe < ActiveRecord::Base
   validates :content, presence: true
 
   def average_rating
-    sum = 0
+    sum = 0.0
     self.ratings.each { |n| sum += n.value}
-    sum / self.ratings.length
+    if self.ratings.length != 0
+      average = sum / self.ratings.length.to_f
+    else
+      average = 0.0
+    end
+  end
+
+  def self.order_by_rating
+    recipe_ratings = {}
+    all_recipes = Recipe.all
+    all_recipes.each do |recipe|
+      recipe_ratings[recipe] = recipe.average_rating
+    end
+    recipe_ratings.keys.sort { |a, b| recipe_ratings[b] <=> recipe_ratings[a] }
   end
 end
