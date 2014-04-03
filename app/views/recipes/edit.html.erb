@@ -1,0 +1,9 @@
+<h1 class = "jumbotron">Edit: <%= @recipe.name %></h1>
+
+<%= render('layouts/errors', :object => @recipe) %>
+
+<form action="/recipes/<%= @recipe.id%>" method="post">
+  <input name="_method" value="patch" type="hidden">
+  <%= render('form') %>
+  <button>Update Recipe</button>
+</form>

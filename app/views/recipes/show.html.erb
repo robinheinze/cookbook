@@ -1,0 +1,12 @@
+<h1 class = "jumbotron"><%= @recipe.name %></h1>
+
+<p><%= @recipe.content.gsub(/\n/, '<br/>').html_safe %></p>
+
+<p><a href="/recipes/<%=@recipe.id %>/edit">Edit</a> or
+  <a href="/recipes/<%= @recipe.id %>"
+    data-confirm="Are you sure you want to delete <%= @recipe.name %>?"
+    data-method = "delete"
+    rel="nofollow">Delete</a>
+</p>
+
+<p><a href="/recipes/">Return to the Recipe Listing</a></p>
