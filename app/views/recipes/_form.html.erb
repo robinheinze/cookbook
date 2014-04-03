@@ -3,4 +3,13 @@
 <br/>
 <textarea id="recipe_content" rows="15" cols="100" name="recipes[content]" placeholder="Your Recipe Content"><%= @recipe.content %></textarea>
 <br/>
+<label for="recipe_tags">Add Tags to your Recipe</label> <br/>
+<% Tag.all.each do |tag| %>
+  <input id="recipe_tags" type="checkbox" name="tags[]" value="<%= tag.id %>"
+    <% if @recipe.tags.include?(tag) %>
+      checked
+    <% end %>
+  ><%= tag.name %><br/>
+<% end %>
+<br/>
 <br/>
