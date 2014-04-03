@@ -15,4 +15,6 @@ Cookbook::Application.routes.draw do
   match('/tags/:id/edit', {:via => :get, :to => 'tags#edit'})
 
   match('/', {:via => :get, :to => 'application#landing'})
+
+  match('/recipes/:id/rating', {:via => :post, :to => 'ratings#create'})
 end

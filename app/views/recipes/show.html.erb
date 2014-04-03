@@ -1,6 +1,17 @@
 <h1 class = "jumbotron"><%= @recipe.name %></h1>
 
 <p><%= @recipe.content.gsub(/\n/, '<br/>').html_safe %></p>
+<form action="/recipes/<%=@recipe.id%>/rating" method="post">
+  <input type="hidden" name="ratings[recipe_id]" value="<%= @recipe.id %>">
+  <select name="ratings[value]">
+    <option selected value=5>5</option>
+    <% 4.downto(1) do |i| %>
+      <option value=<%=i%>><%=i%></option>
+    <% end %>
+  </select>
+  <button>Rate</button>
+</form>
+<br/>
 <p>
   Tags: <% tag_names = @recipe.tags.map { |tag| tag.name } %> <%= tag_names.join(", ") %>
 </p>
