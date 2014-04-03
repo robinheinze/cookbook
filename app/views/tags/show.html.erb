@@ -1,0 +1,19 @@
+<h1 class = "jumbotron"><%= @tag.name %></h1>
+
+<p>Recipes tagged under <%= @tag.name %> </p>
+<ul>
+  <% @tag.recipes.each do |recipe| %>
+    <li><a href="/recipes/<%=recipe.id%>"><%= recipe.name %></a></li>
+  <% end %>
+</ul>
+
+
+<p><a href="/tags/<%=@tag.id %>/edit">Edit</a> or
+  <a href="/tags/<%= @tag.id %>"
+    data-confirm="Are you sure you want to delete <%= @tag.name %>?"
+    data-method = "delete"
+    rel="nofollow">Delete</a>
+    this tag.
+</p>
+
+<p><a href="/tags/">Return to the Tags Listing</a></p>
