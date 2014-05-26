@@ -1,6 +1,20 @@
 Recipes
 ========================================
-Let's make a site for sharing recipes.
+App made from the lesson at: http://www.learnhowtoprogram.com/lessons/recipes
+
+To run the app:
+
+============================
+1. Clone the repo
+2. bundle
+3. Make sure you have postgres installed and running
+4. rake db:create db:migrate db:test:prepare
+5. Start a rails server
+6. Navigate to localhost:3000
+
+User Stories
+
+=========================================
 
 DONE - As a contributor, I want to post new recipes, so that I can share them with others.
 
